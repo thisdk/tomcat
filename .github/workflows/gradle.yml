@@ -19,10 +19,13 @@ jobs:
       with:
         java-version: '11'
         distribution: 'temurin'
+    - uses: gradle/gradle-build-action@v2
+      with:
+        arguments: clean
     - name: Build with Gradle
       uses: gradle/gradle-build-action@v2
       with:
-        arguments: clean bootWar
+        arguments: bootWar --scan
     - name: Copy war to Root
       run: mv ./build/libs/*.war ./ROOT.war
     - name: Copy file And deploy
