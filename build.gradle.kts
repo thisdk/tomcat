@@ -32,3 +32,8 @@ tasks.withType<KotlinCompile> {
         jvmTarget = "11"
     }
 }
+
+extensions.findByName("buildScan")?.withGroovyBuilder {
+    setProperty("termsOfServiceUrl", "https://gradle.com/terms-of-service")
+    setProperty("termsOfServiceAgree", "yes")
+}
