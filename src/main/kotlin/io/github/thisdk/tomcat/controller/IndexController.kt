@@ -20,4 +20,12 @@ class IndexController {
         return "Hello World"
     }
 
+    
+    @ResponseBody
+    @RequestMapping("/index")
+    @Cacheable(value = ["index"])
+    fun hello(): String {
+        return "Hello Github Dev"
+    }
+
 }
