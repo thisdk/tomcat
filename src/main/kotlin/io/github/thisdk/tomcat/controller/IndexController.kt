@@ -17,7 +17,7 @@ class IndexController {
     @RequestMapping("/")
     @Cacheable(value = ["index"])
     fun hello(): String {
-        return "Hello World!"
+        return "Hello World"
     }
 
 }
