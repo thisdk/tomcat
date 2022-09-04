@@ -20,4 +20,18 @@ class IndexController {
         return "Hello World"
     }
 
+    @ResponseBody
+    @RequestMapping("/index")
+    @Cacheable(value = ["other_index"])
+    fun index(): String {
+        return "Hello Index"
+    }
+
+    @ResponseBody
+    @RequestMapping("/gogogo")
+    @Cacheable(value = ["gogogo"])
+    fun gogogo(): String {
+        return "Hello Gogogo"
+    }
+
 }
