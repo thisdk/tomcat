@@ -54,7 +54,7 @@ class RedisConfig : CachingConfigurerSupport() {
         val redisCacheWriter = RedisCacheWriter.nonLockingRedisCacheWriter(redisConnectionFactory)
         val redisCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig()
             .serializeValuesWith(RedisSerializationContext.SerializationPair.fromSerializer(redisSerializer()))
-            .entryTtl(Duration.ofMinutes(10))
+            .entryTtl(Duration.ofMinutes(5))
         return RedisCacheManager(redisCacheWriter, redisCacheConfiguration)
     }
 

@@ -8,7 +8,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.0"
 }
 
-version = "0.1.5"
+version = "0.1.8"
 group = "io.github.thisdk"
 java.sourceCompatibility = JavaVersion.VERSION_11
 

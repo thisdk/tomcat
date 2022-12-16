@@ -37,7 +37,7 @@ class IndexController {
     @ResponseBody
     @RequestMapping("/sync")
     @Cacheable(value = ["jason"], key = "'sync:' + #code")
-    fun sync(code: String): String {
+    fun sync(code: String?): String {
         val json = config.bufferedReader().use { it.readText() }
         val configObject = objectMapping.readValue(json, Config::class.java)
         if (code == configObject.sync) {
@@ -65,7 +65,7 @@ class IndexController {
     @RequestMapping("/password")
     @Cacheable(value = ["jason"], key = "'query:' + #code + ':' + #type")
     @Synchronized
-    fun password(code: String, type: String): String {
+    fun password(code: String?, type: String?): String {
         Thread.sleep(1000)
         val body = redis["jason::password:${code}:${type}"]
         return if (body != null) {
